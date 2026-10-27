@@ -9,7 +9,7 @@ export const Route = createFileRoute("/dashboard/deployments/")({
   component: () => (
     <>
       <PageHeader title="Deployment History" />
-      <div className="overflow-x-auto rounded-xl border bg-card">
+      <div className="bento-glass overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="text-left text-xs text-muted-foreground"><tr className="border-b">{["ID", "Agent", "Status", "Branch", "Duration", "Cost", ""].map((h) => <th key={h} className="px-4 py-3 font-medium">{h}</th>)}</tr></thead>
           <tbody>

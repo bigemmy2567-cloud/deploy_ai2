@@ -22,7 +22,7 @@ function useTimer() {
 
 function DeploymentDetail() {
   const { id } = Route.useParams();
-  const d = deployments.find((x) => x.id === id) ?? deployments[0];
+  const d = deployments.find((x) => x.id === id) ?? deployments[0]!;
   const timer = useTimer();
   const [copied, setCopied] = useState(false);
   const webhook = `https://hooks.deployai.ng/v1/${id}/${d.name}`;

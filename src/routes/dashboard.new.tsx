@@ -28,7 +28,7 @@ function StepCard({ n, title, children }: { n: string; title: string; children: 
 
 function NewProject() {
   const [q, setQ] = useState("");
-  const [repo, setRepo] = useState(repositories[0].name);
+  const [repo, setRepo] = useState(repositories[0]!.name);
   const [entry, setEntry] = useState("agent.py");
   const navigate = useNavigate();
   const list = repositories.filter((r) => r.name.toLowerCase().includes(q.toLowerCase()));

@@ -4,7 +4,7 @@ import { HeroSection, PricingSection, SiteFooter, StepsSection } from "@/compone
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => seo("AgentForge — The Vercel for AI Agents", "Deploy AI agents from GitHub in one click. Scale-to-zero compute, per-second billing in Naira."),
+  head: () => seo("DeployAI — The Vercel for AI Agents", "Deploy AI agents from GitHub in one click. Scale-to-zero compute, per-second billing in Naira."),
   component: Index,
 });
 

@@ -5,11 +5,11 @@ import { deployments, ngn } from "@/lib/mock-data";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/dashboard/deployments/")({
-  head: () => seo("Deployment History — AgentForge", "Every agent deployment, its status, duration and cost."),
+  head: () => seo("Deployment History — DeployAI", "Every agent deployment, its status, duration and cost."),
   component: () => (
     <>
       <PageHeader title="Deployment History" />
-      <div className="overflow-x-auto rounded-xl border bg-card">
+      <div className="bento-glass overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="text-left text-xs text-muted-foreground"><tr className="border-b">{["ID", "Agent", "Status", "Branch", "Duration", "Cost", ""].map((h) => <th key={h} className="px-4 py-3 font-medium">{h}</th>)}</tr></thead>
           <tbody>

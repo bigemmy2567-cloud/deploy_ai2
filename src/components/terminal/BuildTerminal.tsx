@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 /** Slot: swap with a 21st.dev terminal component later. */
 export function BuildTerminal({
-  title = "agentforge — build stream",
+  title = "deployai — build stream",
   lines = bootLogs,
   speed = 550,
   className,
@@ -22,7 +22,7 @@ export function BuildTerminal({
   }, [count, lines.length, speed]);
 
   return (
-    <div className={cn("overflow-hidden rounded-xl border bg-terminal font-mono text-[13px] shadow-glow", className)}>
+    <div className={cn("overflow-hidden rounded-[28px] border bg-terminal font-mono text-[13px] shadow-glow", className)}>
       <div className="flex items-center gap-2 border-b px-4 py-3">
         <span className="size-3 rounded-full bg-destructive/80" />
         <span className="size-3 rounded-full bg-warning/80" />

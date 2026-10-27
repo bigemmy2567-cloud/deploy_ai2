@@ -9,27 +9,27 @@ import { ngn, usage } from "@/lib/mock-data";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/dashboard/wallet")({
-  head: () => seo("Wallet & Billing — AgentForge", "Naira wallet balance, Paystack funding and metered agent usage."),
+  head: () => seo("Wallet & Billing — DeployAI", "Naira wallet balance, Paystack funding and metered agent usage."),
   component: Wallet,
 });
 
 function Wallet() {
   return (
     <>
-      <PageHeader title="Wallet & Billing" />
-      <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
-        <div className="relative overflow-hidden rounded-2xl border bg-card p-8 shadow-glow">
-          <div className="absolute inset-0 bg-hero-glow" />
+      <PageHeader title="Wallet & Billing" subtitle="Billed per second in ₦" />
+      <div className="grid gap-3.5 lg:grid-cols-[1fr_1.4fr]">
+        <div className="bento-solid p-8">
+          
           <div className="relative">
-            <p className="text-sm text-muted-foreground">Active Wallet Balance</p>
-            <p className="mt-2 font-mono text-5xl font-semibold tracking-tight">{ngn(48250)}</p>
-            <p className="mt-2 text-xs text-muted-foreground">≈ 18.6 hours of agent compute at ₦0.72/s</p>
-            <Button variant="hero" size="lg" className="mt-8" onClick={() => toast("Paystack checkout coming soon")}>
+            <p className="bento-cap">Active Wallet Balance</p>
+            <p className="mt-2 text-6xl font-extralight tracking-tighter tabular-nums">{ngn(48250)}</p>
+            <p className="mt-3 text-xs opacity-60">≈ 18.6 hours of agent compute at ₦0.72/s</p>
+            <Button size="lg" className="mt-8 rounded-[14px] bg-background text-foreground hover:bg-background/85" onClick={() => toast("Paystack checkout coming soon")}>
               <CreditCard /> Fund Wallet with Paystack
             </Button>
           </div>
         </div>
-        <div className="overflow-x-auto rounded-2xl border bg-card">
+        <div className="bento-glass overflow-x-auto">
           <p className="border-b px-5 py-4 font-medium">Metered usage</p>
           <table className="w-full text-sm">
             <thead className="text-left text-xs text-muted-foreground"><tr className="border-b">{["Agent", "Duration", "Cost", "Date"].map((h) => <th key={h} className="px-5 py-3 font-medium">{h}</th>)}</tr></thead>
@@ -46,8 +46,8 @@ function Wallet() {
           </table>
         </div>
       </div>
-      <h2 className="mb-4 mt-12 text-lg font-semibold">Financial overview</h2>
-      <div className="overflow-hidden rounded-[28px] border">
+      
+      <div className="mt-10">
         <FinanceBento data={financeData} title="Overview" subtitle="Updated today, 09:41" credit={false} />
       </div>
     </>

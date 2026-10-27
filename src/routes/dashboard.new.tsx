@@ -8,17 +8,17 @@ import { cn } from "@/lib/utils";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/dashboard/new")({
-  head: () => seo("New Project — AgentForge", "Deploy a new AI agent from GitHub."),
+  head: () => seo("New Project — DeployAI", "Deploy a new AI agent from GitHub."),
   component: NewProject,
 });
 
-const field = "w-full rounded-md border bg-background px-3 py-2 text-sm outline-none focus:border-primary";
+const field = "w-full rounded-[14px] border bg-background/60 px-3 py-2.5 text-sm outline-none focus:border-primary";
 
 function StepCard({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-xl border bg-card p-6">
+    <section className="bento-glass p-6">
       <h2 className="mb-4 flex items-center gap-3 font-medium">
-        <span className="grid size-6 place-items-center rounded-full bg-primary/15 font-mono text-xs text-primary">{n}</span>
+        <span className="grid size-6 place-items-center rounded-full bg-primary font-mono text-xs text-primary-foreground">{n}</span>
         {title}
       </h2>
       {children}
@@ -28,13 +28,13 @@ function StepCard({ n, title, children }: { n: string; title: string; children: 
 
 function NewProject() {
   const [q, setQ] = useState("");
-  const [repo, setRepo] = useState(repositories[0].name);
+  const [repo, setRepo] = useState(repositories[0]!.name);
   const [entry, setEntry] = useState("agent.py");
   const navigate = useNavigate();
   const list = repositories.filter((r) => r.name.toLowerCase().includes(q.toLowerCase()));
 
   return (
-    <div className="max-w-3xl space-y-6">
+    <div className="max-w-3xl space-y-3.5">
       <PageHeader title="New Project" subtitle="Three steps to a live agent." />
       <StepCard n="A" title="Select a repository">
         <div className="mb-3 flex items-center gap-2 text-xs text-muted-foreground"><Github className="size-4" /> Connected as <span className="text-foreground">@leats</span></div>
@@ -42,7 +42,7 @@ function NewProject() {
           <Search className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search repositories..." className={cn(field, "pl-9")} />
         </div>
-        <div className="divide-y rounded-md border">
+        <div className="divide-y overflow-hidden rounded-[18px] border">
           {list.map((r) => (
             <button
               key={r.name}
@@ -68,7 +68,7 @@ function NewProject() {
           </label>
         </div>
       </StepCard>
-      <StepCard n="C" title="Deploy">
+      <StepCard n="C" title="Deploy">{/* solid lime CTA */}
         <Button variant="hero" size="xl" className="w-full" onClick={() => navigate({ to: "/dashboard/deployments/$id", params: { id: "dep_7f3a91" } })}>
           <Rocket /> Click to Deploy Agent
         </Button>

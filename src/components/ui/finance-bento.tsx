@@ -418,7 +418,7 @@ if(vbm)for(let i=0;i<15;i++){const x=i%5,y=Math.floor(i/5),e=document.createElem
   return () => { alive = false; frames.forEach((f) => cancelAnimationFrame(f)); ro.disconnect(); clearTimeout(rz); };
 }
 
-export function FinanceBento({ data, title = "Overview", subtitle = "", avatar, avatarAlt = "Profile", credit = true, className = "", style }) {
+export function FinanceBento({ data, title = "Overview", subtitle = "", avatar, avatarAlt = "Profile", credit = true, className = "", style }: FinanceBentoProps) {
   const ref = React.useRef(null);
   React.useEffect(() => {
     const el = ref.current;

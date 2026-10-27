@@ -86,5 +86,5 @@ export function PricingSection() {
 }
 
 export function SiteFooter() {
-  return <footer className="border-t py-10 text-center text-sm text-muted-foreground">© 2026 AgentForge · Made in Lagos</footer>;
+  return <footer className="border-t py-10 text-center text-sm text-muted-foreground">© 2026 DeployAI · Made in Lagos</footer>;
 }

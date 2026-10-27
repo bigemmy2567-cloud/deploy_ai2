@@ -47,7 +47,7 @@ function Wallet() {
         </div>
       </div>
       
-      <div>
+      <div className="mt-10">
         <FinanceBento data={financeData} title="Overview" subtitle="Updated today, 09:41" credit={false} />
       </div>
     </>

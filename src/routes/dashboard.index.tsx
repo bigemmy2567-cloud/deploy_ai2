@@ -7,7 +7,7 @@ import { projects } from "@/lib/mock-data";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/dashboard/")({
-  head: () => seo("Projects — AgentForge", "Manage your deployed AI agent projects."),
+  head: () => seo("Projects — DeployAI", "Manage your deployed AI agent projects."),
   component: Projects,
 });
 

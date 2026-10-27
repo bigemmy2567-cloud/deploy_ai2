@@ -10,7 +10,7 @@ const keys = [
 ];
 
 export const Route = createFileRoute("/dashboard/vault")({
-  head: () => seo("Global API Vault — AgentForge", "Encrypted LLM keys shared across your agents."),
+  head: () => seo("Global API Vault — DeployAI", "Encrypted LLM keys shared across your agents."),
   component: () => (
     <>
       <PageHeader title="Global API Vault" subtitle="Keys are encrypted and injected at runtime." />

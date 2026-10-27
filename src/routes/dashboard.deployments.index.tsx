@@ -5,7 +5,7 @@ import { deployments, ngn } from "@/lib/mock-data";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/dashboard/deployments/")({
-  head: () => seo("Deployment History — AgentForge", "Every agent deployment, its status, duration and cost."),
+  head: () => seo("Deployment History — DeployAI", "Every agent deployment, its status, duration and cost."),
   component: () => (
     <>
       <PageHeader title="Deployment History" />

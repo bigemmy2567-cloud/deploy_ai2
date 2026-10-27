@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/dashboard/new")({
-  head: () => seo("New Project — AgentForge", "Deploy a new AI agent from GitHub."),
+  head: () => seo("New Project — DeployAI", "Deploy a new AI agent from GitHub."),
   component: NewProject,
 });
 

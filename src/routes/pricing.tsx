@@ -4,7 +4,7 @@ import { PricingSection, SiteFooter } from "@/components/landing/Sections";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/pricing")({
-  head: () => seo("Pricing in Naira — AgentForge", "Pay-as-you-go agent compute billed per second in NGN."),
+  head: () => seo("Pricing in Naira — DeployAI", "Pay-as-you-go agent compute billed per second in NGN."),
   component: () => (
     <>
       <SiteNav />

@@ -9,7 +9,7 @@ import { ngn, usage } from "@/lib/mock-data";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/dashboard/wallet")({
-  head: () => seo("Wallet & Billing — AgentForge", "Naira wallet balance, Paystack funding and metered agent usage."),
+  head: () => seo("Wallet & Billing — DeployAI", "Naira wallet balance, Paystack funding and metered agent usage."),
   component: Wallet,
 });
 

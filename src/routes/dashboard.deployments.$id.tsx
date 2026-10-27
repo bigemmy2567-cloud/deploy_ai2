@@ -10,7 +10,7 @@ import { deployments, ngn } from "@/lib/mock-data";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/dashboard/deployments/$id")({
-  head: ({ params }) => seo(`Deployment ${params.id} — AgentForge`, "Live logs, runtime metadata and webhook for this agent deployment."),
+  head: ({ params }) => seo(`Deployment ${params.id} — DeployAI`, "Live logs, runtime metadata and webhook for this agent deployment."),
   component: DeploymentDetail,
 });
 
@@ -25,7 +25,7 @@ function DeploymentDetail() {
   const d = deployments.find((x) => x.id === id) ?? deployments[0];
   const timer = useTimer();
   const [copied, setCopied] = useState(false);
-  const webhook = `https://hooks.agentforge.ng/v1/${id}/${d.name}`;
+  const webhook = `https://hooks.deployai.ng/v1/${id}/${d.name}`;
 
   const rows = [["Deployment ID", id], ["Runtime branch", d.branch], ["Framework", d.framework], ["Budget cap", ngn(5000)], ["Spent this run", ngn(d.cost)]];
 

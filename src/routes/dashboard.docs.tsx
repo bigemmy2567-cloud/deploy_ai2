@@ -5,7 +5,7 @@ import { seo } from "@/lib/seo";
 const docs = ["Quickstart", "Agent entrypoints", "Environment variables", "Webhooks & triggers", "Billing & budget caps", "CLI reference"];
 
 export const Route = createFileRoute("/dashboard/docs")({
-  head: () => seo("Documentation — AgentForge", "Guides for deploying and operating AI agents on AgentForge."),
+  head: () => seo("Documentation — DeployAI", "Guides for deploying and operating AI agents on DeployAI."),
   component: () => (
     <>
       <PageHeader title="Documentation" />

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 /** Slot: swap with a 21st.dev terminal component later. */
 export function BuildTerminal({
-  title = "agentforge — build stream",
+  title = "deployai — build stream",
   lines = bootLogs,
   speed = 550,
   className,

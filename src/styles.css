@@ -114,3 +114,43 @@
 
 @keyframes blink { 50% { opacity: 0; } }
 @utility animate-blink { animation: blink 1s step-end infinite; }
+
+/* ---- Bento system (derived from the FinanceBento component) ---- */
+:root {
+  --background: oklch(0 0 0);
+  --card: oklch(1 0 0 / 6%);
+  --popover: oklch(0.16 0 0);
+  --primary: oklch(0.94 0.21 118);
+  --primary-foreground: oklch(0.15 0 0);
+  --ring: oklch(0.94 0.21 118);
+  --muted-foreground: oklch(1 0 0 / 56%);
+  --border: oklch(1 0 0 / 12%);
+  --sidebar: oklch(0 0 0);
+  --sidebar-primary: oklch(0.94 0.21 118);
+  --sidebar-accent: oklch(1 0 0 / 8%);
+  --terminal: oklch(0.08 0 0);
+  --terminal-foreground: oklch(0.92 0.06 118);
+  --gradient-hero: radial-gradient(60% 50% at 50% 0%, color-mix(in oklab, oklch(0.55 0.25 265) 45%, transparent), transparent 70%);
+  --shadow-glow: inset 0 1px 0 oklch(1 0 0 / 20%), inset 0 0 0 1px oklch(1 0 0 / 6%);
+  --bento-rim: inset 0 1px 0 oklch(1 0 0 / 22%), inset 0 0 0 1px oklch(1 0 0 / 6%);
+  --bento-blue: radial-gradient(ellipse 80% 55% at 50% 62%, #05082a 35%, transparent 80%), linear-gradient(180deg, #b9a6ff 0%, #2e43ff 36%, #2e43ff 74%, #6d7dff 100%);
+  --bento-graph: radial-gradient(ellipse 80% 55% at 50% 62%, #060608 35%, transparent 80%), linear-gradient(180deg, #9a9aa8 0%, #3a3a44 36%, #3a3a44 74%, #55555f 100%);
+  --bento-pink: radial-gradient(ellipse 80% 55% at 50% 62%, #3a031c 35%, transparent 80%), linear-gradient(180deg, #ffb3d6 0%, #ff2a85 36%, #ff2a85 74%, #ff6aa8 100%);
+  --bento-copper: radial-gradient(ellipse 80% 55% at 50% 62%, #1d0b05 35%, transparent 80%), linear-gradient(180deg, #f6bf96 0%, #c2683a 36%, #c2683a 74%, #dc8a5c 100%);
+  --bento-green: radial-gradient(ellipse 80% 55% at 50% 62%, #061d15 35%, transparent 80%), linear-gradient(180deg, #a6e8c8 0%, #36956f 36%, #36956f 74%, #58b58c 100%);
+  --bento-lime: radial-gradient(ellipse 80% 55% at 50% 62%, #121700 35%, transparent 80%), linear-gradient(180deg, #f4ffb8 0%, #a3c400 36%, #a3c400 74%, #c9e03a 100%);
+}
+
+@utility bento { position: relative; overflow: hidden; border-radius: 28px; box-shadow: var(--bento-rim); color: oklch(1 0 0); }
+@utility bento-glass { position: relative; overflow: hidden; border-radius: 28px; background: oklch(1 0 0 / 6%); border: 1px solid oklch(1 0 0 / 12%); backdrop-filter: blur(20px); }
+@utility bento-solid { position: relative; overflow: hidden; border-radius: 28px; background: var(--primary); color: var(--primary-foreground); box-shadow: inset 0 1px 0 oklch(1 0 0 / 50%); }
+@utility bg-bento-blue { background: var(--bento-blue); }
+@utility bg-bento-graph { background: var(--bento-graph); }
+@utility bg-bento-pink { background: var(--bento-pink); }
+@utility bg-bento-copper { background: var(--bento-copper); }
+@utility bg-bento-green { background: var(--bento-green); }
+@utility bg-bento-lime { background: var(--bento-lime); }
+@utility bento-cap { font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; opacity: .6; }
+@utility bento-big { font-size: 40px; font-weight: 200; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+@utility bento-chip { display: inline-flex; align-items: center; height: 22px; padding: 0 9px; border-radius: 11px; background: oklch(0 0 0 / 85%); color: oklch(1 0 0); font: 600 11px var(--font-mono); }
+@utility bento-seg { display: flex; padding: 3px; gap: 2px; border-radius: 14px; background: oklch(1 0 0 / 8%); border: 1px solid oklch(1 0 0 / 12%); }

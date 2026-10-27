@@ -32,22 +32,22 @@ function DeploymentDetail() {
   return (
     <>
       <PageHeader title={d.name} subtitle="Deployment detail" action={<StatusBadge status={d.status} />} />
-      <div className="grid gap-6 lg:grid-cols-[340px_1fr]">
-        <div className="space-y-6">
-          <div className="rounded-xl border bg-card p-5">
-            <p className="text-xs text-muted-foreground">Active execution</p>
-            <p className="mt-1 font-mono text-4xl font-semibold text-primary">{timer}</p>
+      <div className="grid gap-3.5 lg:grid-cols-[340px_1fr]">
+        <div className="space-y-3.5">
+          <div className="bento bg-bento-blue p-6">
+            <p className="bento-cap">Active execution</p>
+            <p className="mt-1 font-mono text-5xl font-extralight tracking-tighter">{timer}</p>
             <dl className="mt-6 space-y-3 text-sm">
               {rows.map(([k, v]) => (
-                <div key={k} className="flex justify-between gap-4"><dt className="text-muted-foreground">{k}</dt><dd className="font-mono">{v}</dd></div>
+                <div key={k} className="flex justify-between gap-4"><dt className="opacity-60">{k}</dt><dd className="font-mono">{v}</dd></div>
               ))}
             </dl>
           </div>
-          <div className="rounded-xl border bg-card p-5">
+          <div className="bento-glass p-6">
             <p className="text-sm font-medium">Webhook URL</p>
             <p className="mt-1 text-xs text-muted-foreground">POST events here to trigger the agent.</p>
             <div className="mt-3 flex gap-2">
-              <code className="min-w-0 flex-1 truncate rounded-md border bg-terminal px-3 py-2 font-mono text-xs text-terminal-foreground">{webhook}</code>
+              <code className="min-w-0 flex-1 truncate rounded-[14px] border bg-terminal px-3 py-2 font-mono text-xs text-terminal-foreground">{webhook}</code>
               <Button size="icon" variant="outline" aria-label="Copy to clipboard" onClick={() => { navigator.clipboard.writeText(webhook); setCopied(true); toast.success("Webhook URL copied"); setTimeout(() => setCopied(false), 1500); }}>
                 {copied ? <Check /> : <Copy />}
               </Button>

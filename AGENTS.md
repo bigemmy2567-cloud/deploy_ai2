@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- UI is split into src/components/{landing,dashboard,terminal,wallet}; mock data lives in src/lib/mock-data.ts so sections can be swapped for 21st.dev components without touching routes.

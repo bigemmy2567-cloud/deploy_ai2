@@ -25,7 +25,7 @@ function Projects() {
       <div className="grid grid-cols-12 gap-3.5">
         <div className="bento bg-bento-blue col-span-12 h-64 p-6 lg:col-span-8">
           <div className="flex justify-between"><p className="text-lg font-semibold tracking-tight">Agent fleet</p><span className="bento-chip">{live} live</span></div>
-          <p className="bento-big mt-8 !text-7xl">{projects.length}<span className="ml-3 text-base font-medium opacity-60">agents deployed</span></p>
+          <p className="bento-big mt-8 !text-7xl">{projects.length}<span className="ml-3 text-base font-medium tracking-normal opacity-60">agents deployed</span></p>
           <div className="absolute inset-x-6 bottom-6 flex h-16 items-end gap-1.5">
             {[4, 6, 5, 8, 7, 9, 6, 10, 12, 9, 11, 14, 13, 15, 12, 16, 18, 15, 19, 21].map((h, i) => (
               <span key={i} className="flex-1 rounded-full bg-foreground/80" style={{ height: `${h * 4.5}%` }} />

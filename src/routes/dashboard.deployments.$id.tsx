@@ -36,7 +36,7 @@ function DeploymentDetail() {
         <div className="space-y-3.5">
           <div className="bento bg-bento-blue p-6">
             <p className="bento-cap">Active execution</p>
-            <p className="mt-1 font-mono text-5xl font-extralight tracking-tighter">{timer}</p>
+            <p className="mt-2 text-6xl tabular-nums font-extralight tracking-tighter">{timer}</p>
             <dl className="mt-6 space-y-3 text-sm">
               {rows.map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4"><dt className="opacity-60">{k}</dt><dd className="font-mono">{v}</dd></div>

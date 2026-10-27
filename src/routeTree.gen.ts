@@ -10,33 +10,159 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardDocsRouteImport } from './routes/dashboard.docs'
+import { Route as DashboardNewRouteImport } from './routes/dashboard.new'
+import { Route as DashboardVaultRouteImport } from './routes/dashboard.vault'
+import { Route as DashboardWalletRouteImport } from './routes/dashboard.wallet'
+import { Route as DashboardDeploymentsIndexRouteImport } from './routes/dashboard.deployments.index'
+import { Route as DashboardDeploymentsIdRouteImport } from './routes/dashboard.deployments.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardDocsRoute = DashboardDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardNewRoute = DashboardNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardVaultRoute = DashboardVaultRouteImport.update({
+  id: '/vault',
+  path: '/vault',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardWalletRoute = DashboardWalletRouteImport.update({
+  id: '/wallet',
+  path: '/wallet',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardDeploymentsIndexRoute =
+  DashboardDeploymentsIndexRouteImport.update({
+    id: '/deployments/',
+    path: '/deployments/',
+    getParentRoute: () => DashboardRoute,
+  } as any)
+const DashboardDeploymentsIdRoute = DashboardDeploymentsIdRouteImport.update({
+  id: '/deployments/$id',
+  path: '/deployments/$id',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/features': typeof FeaturesRoute
+  '/pricing': typeof PricingRoute
+  '/dashboard/docs': typeof DashboardDocsRoute
+  '/dashboard/new': typeof DashboardNewRoute
+  '/dashboard/vault': typeof DashboardVaultRoute
+  '/dashboard/wallet': typeof DashboardWalletRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/dashboard/deployments/$id': typeof DashboardDeploymentsIdRoute
+  '/dashboard/deployments/': typeof DashboardDeploymentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/features': typeof FeaturesRoute
+  '/pricing': typeof PricingRoute
+  '/dashboard/docs': typeof DashboardDocsRoute
+  '/dashboard/new': typeof DashboardNewRoute
+  '/dashboard/vault': typeof DashboardVaultRoute
+  '/dashboard/wallet': typeof DashboardWalletRoute
+  '/dashboard': typeof DashboardIndexRoute
+  '/dashboard/deployments/$id': typeof DashboardDeploymentsIdRoute
+  '/dashboard/deployments': typeof DashboardDeploymentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/features': typeof FeaturesRoute
+  '/pricing': typeof PricingRoute
+  '/dashboard/docs': typeof DashboardDocsRoute
+  '/dashboard/new': typeof DashboardNewRoute
+  '/dashboard/vault': typeof DashboardVaultRoute
+  '/dashboard/wallet': typeof DashboardWalletRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/dashboard/deployments/$id': typeof DashboardDeploymentsIdRoute
+  '/dashboard/deployments/': typeof DashboardDeploymentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/features'
+    | '/pricing'
+    | '/dashboard/docs'
+    | '/dashboard/new'
+    | '/dashboard/vault'
+    | '/dashboard/wallet'
+    | '/dashboard/'
+    | '/dashboard/deployments/$id'
+    | '/dashboard/deployments/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/features'
+    | '/pricing'
+    | '/dashboard/docs'
+    | '/dashboard/new'
+    | '/dashboard/vault'
+    | '/dashboard/wallet'
+    | '/dashboard'
+    | '/dashboard/deployments/$id'
+    | '/dashboard/deployments'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/features'
+    | '/pricing'
+    | '/dashboard/docs'
+    | '/dashboard/new'
+    | '/dashboard/vault'
+    | '/dashboard/wallet'
+    | '/dashboard/'
+    | '/dashboard/deployments/$id'
+    | '/dashboard/deployments/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
+  FeaturesRoute: typeof FeaturesRoute
+  PricingRoute: typeof PricingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +174,108 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/docs': {
+      id: '/dashboard/docs'
+      path: '/docs'
+      fullPath: '/dashboard/docs'
+      preLoaderRoute: typeof DashboardDocsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/new': {
+      id: '/dashboard/new'
+      path: '/new'
+      fullPath: '/dashboard/new'
+      preLoaderRoute: typeof DashboardNewRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/vault': {
+      id: '/dashboard/vault'
+      path: '/vault'
+      fullPath: '/dashboard/vault'
+      preLoaderRoute: typeof DashboardVaultRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/wallet': {
+      id: '/dashboard/wallet'
+      path: '/wallet'
+      fullPath: '/dashboard/wallet'
+      preLoaderRoute: typeof DashboardWalletRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/deployments/': {
+      id: '/dashboard/deployments/'
+      path: '/deployments'
+      fullPath: '/dashboard/deployments/'
+      preLoaderRoute: typeof DashboardDeploymentsIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/deployments/$id': {
+      id: '/dashboard/deployments/$id'
+      path: '/deployments/$id'
+      fullPath: '/dashboard/deployments/$id'
+      preLoaderRoute: typeof DashboardDeploymentsIdRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
+interface DashboardRouteChildren {
+  DashboardDocsRoute: typeof DashboardDocsRoute
+  DashboardNewRoute: typeof DashboardNewRoute
+  DashboardVaultRoute: typeof DashboardVaultRoute
+  DashboardWalletRoute: typeof DashboardWalletRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+  DashboardDeploymentsIdRoute: typeof DashboardDeploymentsIdRoute
+  DashboardDeploymentsIndexRoute: typeof DashboardDeploymentsIndexRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardDocsRoute: DashboardDocsRoute,
+  DashboardNewRoute: DashboardNewRoute,
+  DashboardVaultRoute: DashboardVaultRoute,
+  DashboardWalletRoute: DashboardWalletRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+  DashboardDeploymentsIdRoute: DashboardDeploymentsIdRoute,
+  DashboardDeploymentsIndexRoute: DashboardDeploymentsIndexRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRouteWithChildren,
+  FeaturesRoute: FeaturesRoute,
+  PricingRoute: PricingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
